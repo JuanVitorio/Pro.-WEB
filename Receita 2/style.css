@@ -1,0 +1,43 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: -50px;
+    background-color: #fff9f9;
+}
+
+p{
+    font-style: italic;
+}
+
+p.verso{
+    color: rgb(101, 101, 255);
+}
+
+.mote{
+    color: rgb(255, 97, 97);
+}
+
+a{
+    text-decoration: none;
+    color: #5353ff;
+    transition: .2s;
+}
+
+a:hover{
+    color: #7e7eff;
+}
+
+.poeta img{
+    border-radius: 50%;
+    width: 400px;
+}
+
+th{
+    background-color: rgb(230, 230, 230)  ;
+}
+
+th,td, table{
+    border: 1px solid black;
+}
