@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .meu_amor{
+            transition: .1s;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+    <div id="meu amor" class="meu_amor"></div>    
+</body>
+<script>
+
+    function carregarDiv(){
+
+       let div = document.getElementById("meu amor")
+
+       div.innerHTML = `<h1>Guinness</h1>`
+
+        div.classList.toggle('meu_amor')
+
+    }
+
+    
+
+    let botao = document.getElementById("botaoCarregar")
+
+    botao.addEventListener("click", carregarDiv)                 
+
+ </script>
+</html>
