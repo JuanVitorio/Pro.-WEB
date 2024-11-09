@@ -18,41 +18,39 @@
    </head>
    <body>
       <div>
-         <button id="botaoCarregar">Carregando cervejas...</button>
+         <button id="botaoCarregar">Carregando sorvetes...</button>
          <button id="or">Ordenar</button>
          <button id="embaralhar">Embaralhar</button>
       </div>
-      <table id="tabelaCervejas">
+      <table id="tabelaSorvetes">
          <tr>
-            <th>Cerveja</th>
+            <th>Sorvete</th>
          </tr>
       </table>
    </body>
    <script>
-      let cervejas = ["Guiness", "Desperados", "Becks"];
+      let sorvetes = ["Chocolate", "Morango", "Baunilha"];
       
-      function transformar(item) {
-         return `<tr><td>${item}</td></tr>`;
-      }
+      const transformar = item => `<tr><td>${item}</td></tr>`;
       
-      function orde(){
-         let f = cervejas.sort();
-         let tabela = document.getElementById("tabelaCervejas");
-         let cervejasHtml = f.map(transformar);
-         tabela.innerHTML = `<tr><th>Cerveja</th></tr>` + cervejasHtml.join("\n");
+      const ordenar = () => {
+         let f = sorvetes.sort();
+         let tabela = document.getElementById("tabelaSorvetes");
+         let sorvetesHtml = f.map(transformar);
+         tabela.innerHTML = `<tr><th>Sorvete</th></tr>` + sorvetesHtml.join("\n");
       }
 
-      function carregarTabela() {
-         let tabela = document.getElementById("tabelaCervejas");
-         let cervejasHtml = cervejas.map(transformar);
-         tabela.innerHTML = `<tr><th>Cerveja</th></tr>` + cervejasHtml.join("\n");
+      const carregarTabela = () => {
+         let tabela = document.getElementById("tabelaSorvetes");
+         let sorvetesHtml = sorvetes.map(transformar);
+         tabela.innerHTML = `<tr><th>Sorvete</th></tr>` + sorvetesHtml.join("\n");
       }
       
-      function embaralhar(){
-         let shuffled = cervejas.sort(() => Math.random() - 0.5);
-         let tabela = document.getElementById("tabelaCervejas");
-         let cervejasHtml = shuffled.map(transformar);
-         tabela.innerHTML = `<tr><th>Cerveja</th></tr>` + cervejasHtml.join("\n");
+      const embaralhar = () => {
+         let shuffled = sorvetes.sort(() => Math.random() - 0.5);
+         let tabela = document.getElementById("tabelaSorvetes");
+         let sorvetesHtml = shuffled.map(transformar);
+         tabela.innerHTML = `<tr><th>Sorvete</th></tr>` + sorvetesHtml.join("\n");
       }
 
       let botao = document.getElementById("botaoCarregar");
@@ -60,7 +58,7 @@
       let shuffleButton = document.getElementById("embaralhar");
       
       botao.addEventListener("click", carregarTabela);
-      or.addEventListener("click", orde);
+      or.addEventListener("click", ordenar);
       shuffleButton.addEventListener("click", embaralhar);
    </script>
 </html>
