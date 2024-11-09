@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <style>
+         table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+         }
+      </style>
+   </head>
+   <body>
+      <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+      <table id="cervejasTabela">
+         <thead id="cervejasThead">
+            <!-- Cabeçalhos dinâmicos serão inseridos aqui -->
+         </thead>
+         <tbody id="cervejasDiv"></tbody>
+      </table>            
+   </body>
+   <script>
+      let cervejas = [
+         {
+            name: "Guiness", 
+            alcohol: "10%",
+            style: "Imperial Stout",
+            ibu: "45"
+         }, 
+         {
+            name: "Desperados",
+            alcohol: "6%",
+            style: "Lager",
+            ibu: "20"
+         }, 
+         {
+            name: "Becks",
+            alcohol: "5%",
+            style: "Pilsen",
+            ibu: "18"
+         }
+      ];
+
+      const carregarDiv = (
+         cs, 
+         elementId = "cervejasDiv", 
+         headers = ["Nome", "Álcool", "Estilo", "Amargor"],
+         properties = ["name", "alcohol", "style", "ibu"]
+      ) => {
+         // Carregar cabeçalhos
+         const thead = document.getElementById("cervejasThead");
+         const headHtml = `<tr>${headers.map(header => `<th>${header}</th>`).join("")}</tr>`;
+         thead.innerHTML = headHtml;
+
+         // Carregar dados
+         const tbody = document.getElementById(elementId);
+         const itensHtml = cs.map(item => 
+            `<tr>
+               ${properties.map(prop => `<td>${item[prop] || ''}</td>`).join("")}
+            </tr>`);
+         tbody.innerHTML = `${itensHtml.join("\n")}`;
+      };
+
+      let botao = document.getElementById("botaoCarregar");
+      botao.addEventListener("click", () => carregarDiv(cervejas));                 
+   </script>
+</html>
