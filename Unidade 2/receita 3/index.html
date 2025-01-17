@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ReceitaReact - 4</title>
+    <title>ReceitaReact - 3</title>      
   </head>
   <body>
     <div id="app"></div>
@@ -11,43 +11,47 @@
     <script src="libs/babel.js"></script>
 
     <script type="text/babel">
-      const TabelaBebidas = ({ titulo, cabecalhos, conteudo }) => {
+      class Cabecalho extends React.Component {
+        render() {
+          return <h1>Receita 3</h1>;
+        }
+      }
+
+      class Rodape extends React.Component {
+        render() {
+          return <footer>© 2025 Todos os direitos reservados a Fabricio</footer>;
+        }
+      }
+
+      class TabelaBebidas extends React.Component {
+        render() {
+          return (
+            <div>
+              <h1>{this.props.titulo}</h1>
+              <table id="tabela" border="1">
+                <thead>
+                  <tr><th>Nome</th><th>Marca</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                </tbody>
+              </table>
+            </div>
+          );
+        }
+      }
+
+      function App() {
         return (
           <div>
-            <h1>{titulo}</h1>
-            <table id="tabela" border="1">
-              <thead>
-                <tr>
-                  {cabecalhos.map((cabecalho, index) => (
-                    <th key={index}>{cabecalho}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {conteudo.map((linha, index) => (
-                  <tr key={index}>
-                    {linha.map((celula, celulaIndex) => (
-                      <td key={celulaIndex}>{celula}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <Cabecalho />
+            <TabelaBebidas titulo="Tabela de Cana" />
+            <Rodape />
           </div>
         );
-      };
+      }
 
-      const valoresCabecalhos = ["Nome", "Marca"];
-      const conteudoTabela = [
-        ["Havana", "Engenho Anísio Santiago"],
-        ["51", "Cia Müller de Bebidas"],
-        ["Ypioca", "Cia Brasileira de Bebidas"]
-      ];
-
-      ReactDOM.render(
-        <TabelaBebidas titulo="minha tabela de cana" cabecalhos={valoresCabecalhos} conteudo={conteudoTabela} />,
-        document.getElementById("app")
-      );
+      ReactDOM.render(<App />, document.getElementById("app"));
     </script>
   </body>
 </html>
