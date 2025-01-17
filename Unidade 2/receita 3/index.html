@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>ReceitaReact - 2</title>      
+   </head>
+   <body>
+      <div id="app"></div>
+
+      <script src="libs/react.js"></script>
+      <script src="libs/react-dom.js"></script>
+      <script src="libs/babel.js"></script>
+            
+      <script type="text/babel">
+         class Cabecalho extends React.Component {
+            render() {
+               return (
+                  <header>
+                     <h1>Bem-vindo ao ReceitaReact</h1>
+                  </header>
+               );
+            }
+         }
+
+         class Rodape extends React.Component {
+            render() {
+               return (
+                  <footer>
+                     <p>&copy; 2025 ReceitaReact. Todos os direitos reservados.</p>
+                  </footer>
+               );
+            }
+         }
+
+         class TabelaBebidas extends React.Component {
+            render() {
+               return (
+                  <div>
+                     <h2>{this.props.titulo}</h2>
+                     <table id="tabela" border="1">
+                        <thead>
+                           <tr><th>Nome</th><th>Marca</th></tr>
+                        </thead>
+                        <tbody>
+                           <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                           <tr><td>Johnnie Walker</td><td>Diageo</td></tr>
+                           <tr><td>Jack Daniel's</td><td>Brown-Forman</td></tr>
+                        </tbody>
+                     </table>
+                  </div>
+               );
+            }
+         }
+
+         class App extends React.Component {
+            render() {
+               return (
+                  <div>
+                     <Cabecalho />
+                     <TabelaBebidas titulo="Tabela de Cana" />
+                     <Rodape />
+                  </div>
+               );
+            }
+         }
+
+         ReactDOM.render(<App />, document.getElementById("app"));
+      </script>
+   </body>
+</html>
